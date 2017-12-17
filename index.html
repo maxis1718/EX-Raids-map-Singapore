@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        min-height: 100%;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var locations = [
+        [
+          "Bishan-Ang Mo Kio Park",
+          1.363165,
+          103.844424
+        ],
+        [
+          "Bedok Reservoir Park",
+          1.338592,
+          103.923098
+        ],
+        [
+          "Siglap Park",
+          1.318818,
+          103.925431
+        ],
+        [
+          "Telok Kurau Park",
+          1.31598,
+          103.91381
+        ],
+        [
+          "Bishan-Ang Mo Kio Park",
+          1.359743,
+          103.848146
+        ],
+        [
+          "Bishan-Ang Mo Kio Park",
+          1.360148,
+          103.85192
+        ],
+        [
+          "Rumah Tinggi ECO Park",
+          1.288316,
+          103.80702
+        ],
+        [
+          "Tiong Bahru Park",
+          1.287522,
+          103.824262
+        ],
+        [
+          "Zhenghua Park",
+          1.377159,
+          103.776328
+        ],
+        [
+          "K&J Masamune The Cow",
+          1.341038,
+          103.776277
+        ],
+        [
+          "Changi Beach Park",
+          1.392512,
+          103.988407
+        ],
+        [
+          "Limbang Park",
+          1.390939,
+          103.744427
+        ],
+        [
+          "Yew Tee Park",
+          1.397505,
+          103.744281
+        ],
+        [
+          "Firefly Park",
+          1.320093,
+          103.764704
+        ],
+        [
+          "Firefly Park",
+          1.320631,
+          103.765059
+        ],
+        [
+          "Aljunied Pk",
+          1.329451,
+          103.880092
+        ],
+        [
+          "Maplewood Park",
+          1.352824,
+          103.884884
+        ],
+        [
+          "Punggol South Park",
+          1.36899,
+          103.882762
+        ],
+        [
+          "Clean and Green Plaque",
+          1.340817,
+          103.743898
+        ],
+        [
+          "Jurong Central Park",
+          1.339445,
+          103.708522
+        ],
+        [
+          "Taman Jurong Greens",
+          1.336967,
+          103.718584
+        ],
+        [
+          "Gardens by the Bay South",
+          1.282247,
+          103.869008
+        ],
+        [
+          "Gardens by the Bay South",
+          1.284322,
+          103.863999
+        ],
+        [
+          "East Coast Park (Zone B)",
+          1.2971,
+          103.901018
+        ],
+        [
+          "Istana Park",
+          1.299536,
+          103.843701
+        ],
+        [
+          "Pasir Ris Park",
+          1.38121,
+          103.94844
+        ],
+        [
+          "Pasir Ris Town Park",
+          1.374209,
+          103.951445
+        ],
+        [
+          "Punggol Waterway Park",
+          1.406488,
+          103.9076
+        ],
+        [
+          "Punggol Waterway Park",
+          1.41193,
+          103.904202
+        ],
+        [
+          "Hort Park",
+          1.27915,
+          103.797954
+        ],
+        [
+          "Canberra Park",
+          1.443925,
+          103.818248
+        ],
+        [
+          "Sengkang Sculpture Park",
+          1.394992,
+          103.896209
+        ],
+        [
+          "Sengkang Sculpture Park",
+          1.396288,
+          103.897702
+        ],
+        [
+          "Serangoon Community Park",
+          1.356234,
+          103.871733
+        ],
+        [
+          "Sunplaza Park",
+          1.35995,
+          103.944034
+        ],
+        [
+          "Sunplaza Park",
+          1.358935,
+          103.943307
+        ],
+        [
+          "Tampines Central Park",
+          1.354006,
+          103.936181
+        ],
+        [
+          "Tampines Central Park",
+          1.354161,
+          103.936563
+        ],
+        [
+          "Toa Payoh Park",
+          1.33076,
+          103.847563
+        ],
+        [
+          "Fu Shan Garden",
+          1.440687,
+          103.789167
+        ],
+        [
+          "Greenwood Sanctuary Admiralt",
+          1.440488,
+          103.806996
+        ],
+        [
+          "Vista Park",
+          1.429609,
+          103.796079
+        ],
+        [
+          "Vista Park",
+          1.430018,
+          103.794729
+        ],
+        [
+          "Woodlands Admiral Garden",
+          1.43752,
+          103.799506
+        ],
+        [
+          "Woodlands Waterfront",
+          1.451812,
+          103.77885
+        ],
+        [
+          "Lower Seletar Reservoir Park",
+          1.410483,
+          103.833611
+        ],
+        [
+          "Yishun Green Lk",
+          1.418261,
+          103.840345
+        ],
+        [
+          "Yishun Reservoir Park",
+          1.425504,
+          103.840164
+        ],
+        [
+          "Rumah Tinggi ECO Park",
+          1.288635,
+          103.807341
+        ],
+        [
+          "Limbang Park",
+          1.390136,
+          103.744566
+        ],
+        [
+          "Hougang Avenue 1 Parkj",
+          1.355758,
+          103.889822
+        ],
+        [
+          "Jalan Batu Fountain",
+          1.302239,
+          103.883209
+        ],
+        [
+          "Gardens by the Bay South",
+          1.279058,
+          103.862826
+        ],
+        [
+          "Fort Canning Park",
+          1.296606,
+          103.848672
+        ],
+        [
+          "Sengkang Sculpture Park",
+          1.397149,
+          103.898136
+        ],
+        [
+          "Luxus Hills Park",
+          1.379705,
+          103.874299
+        ],
+        [
+          "Woodlands Admiral Garden",
+          1.438321,
+          103.801163
+        ],
+        [
+          "Woodlands Admiral Garden",
+          1.44007,
+          103.78958
+        ],
+        [
+          "Neighbourhood Park",
+          1.434378,
+          103.783481
+        ],
+        [
+          "SpringLeaf Nature Park",
+          1.401309,
+          103.817752
+        ],
+        [
+          "Yishun Reservoir Park",
+          1.42488,
+          103.839407
+        ]
+      ]
+
+      function initMap() {
+        let center = { lat: 1.288635, lng: 103.807341 }
+        let map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center
+        });
+
+        let infoWindow = new google.maps.InfoWindow();
+        let bounds = new google.maps.LatLngBounds()
+
+        let handleMarkerClick = (marker, description) => {
+          return () => {
+              infoWindow.setContent(description)
+              infoWindow.open(map, marker)
+            }
+        }
+
+        let boundsListener = google.maps.event.addListener((map), 'bounds_changed', () => {
+            google.maps.event.removeListener(boundsListener)
+        });
+
+        locations.forEach((location, index) => {
+
+          let description = location[0]
+          let lat = location[1]
+          let lng = location[2]
+
+          let position = new google.maps.LatLng(lat, lng)
+          let marker = new google.maps.Marker({ position, map })
+
+          google.maps.event.addListener(marker, 'click', handleMarkerClick(marker, description))
+
+          bounds.extend(position)
+          map.fitBounds(bounds)
+        })
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9BGGgqtUFxWZ4cBuApV4gVuHnxfzTCGw&callback=initMap">
+    </script>
+  </body>
+</html>
